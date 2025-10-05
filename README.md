@@ -340,7 +340,7 @@ Echo is open source and welcomes contributions. Whether you're fixing bugs, addi
 
 ## License
 
-MIT License - see LICENSE file for details.
+The unlicense - see LICENSE file for details.
 
 Echo is free software. You can use, modify, and distribute it freely.
 
