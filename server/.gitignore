@@ -1,0 +1,13 @@
+# Memory storage
+memory.json
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
