@@ -2,6 +2,8 @@
 
 Echo is a free, open-source alternative to Friend.com, bringing AI companionship to everyone regardless of their ability to pay. This project democratizes access to conversational AI by providing a minimalist, privacy-focused companion that runs entirely on your own hardware.
 
+<img width="2537" height="1333" alt="image" src="https://github.com/user-attachments/assets/597e321b-fbce-4f6f-b737-bd2ebf356dec" />
+
 ## Why Echo Exists
 
 Friend.com offers an AI companion experience but is only avaiable as a demo on their website with proprietary models and hardware. Also, their main source of income is the AI necklace , which is expensive and has the same proprietary/privacy issues as the website Friend. Echo was created to make this technology accessible to everyone by:
