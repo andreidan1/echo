@@ -108,20 +108,32 @@ npm start
 
 The backend will start on `http://localhost:3000`
 
-3. **Start the frontend** (in a new terminal)
+3. **Configure the frontend for local development**
 ```bash
 cd frontend
+
+# Copy the example environment file
+cp .env.example .env
+
+# The .env file should contain:
+# VITE_API_URL=http://localhost:3000/api
+```
+
+⚠️ **IMPORTANT**: The repository includes a `.env.production` file with a public ngrok URL for the live demo. This will NOT work for local development. You MUST create a `.env` file (not `.env.production`) with `VITE_API_URL=http://localhost:3000/api` to run locally.
+
+4. **Start the frontend**
+```bash
 npm install
 npm run dev
 ```
 
 The frontend will be available at `http://localhost:5173`
 
-4. **Open your browser** and navigate to `http://localhost:5173`
+5. **Open your browser** and navigate to `http://localhost:5173`
 
 ### Configuration
 
-#### Backend Environment Variables
+#### Backend Environment Variables (Optional)
 Create a `.env` file in the `server/` directory:
 
 ```env
@@ -131,11 +143,28 @@ OLLAMA_MODEL=gemma3:1b
 ```
 
 #### Frontend Environment Variables
+
+**For Local Development:**
+
 Create a `.env` file in the `frontend/` directory:
 
 ```env
 VITE_API_URL=http://localhost:3000/api
 ```
+
+**For Production Deployment:**
+
+The `.env.production` file is used when building for production (e.g., GitHub Pages). It points to a public backend URL:
+
+```env
+VITE_API_URL=https://your-ngrok-url.ngrok-free.app/api
+```
+
+⚠️ **Key Points:**
+- `.env` = Used during `npm run dev` (local development)
+- `.env.production` = Used during `npm run build` (production builds)
+- The repository includes `.env.production` for the live demo
+- You MUST create your own `.env` file for local development
 
 ## API Reference
 

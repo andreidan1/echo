@@ -67,3 +67,26 @@ ngrok http 3000
 ## Stopping the Server
 
 Press `Ctrl+C` in the terminal where the script is running. This will stop both the server and ngrok.
+
+## Troubleshooting
+
+### "The site can't be reached" or 404 errors
+
+This usually means the ngrok URL has changed. With the free tier, ngrok generates a new URL every time you restart it.
+
+**Solution:**
+1. Check the current ngrok URL: `curl -s http://localhost:4040/api/tunnels | grep -o 'https://[^"]*\.ngrok[^"]*'`
+2. Update `frontend/.env.production` with the new URL
+3. Rebuild and push: `cd frontend && npm run build && cd .. && git add . && git commit -m "Update ngrok URL" && git push`
+
+### Local development not working
+
+If you're trying to run the project locally and getting connection errors:
+
+1. Make sure you have a `.env` file in the `frontend/` directory (NOT `.env.production`)
+2. The `.env` file should contain: `VITE_API_URL=http://localhost:3000/api`
+3. The `.env.production` file is ONLY for the deployed GitHub Pages version
+
+### Getting a static ngrok URL
+
+To avoid URL changes, you can upgrade to ngrok Pro which provides static domains. This eliminates the need to update and redeploy every time.

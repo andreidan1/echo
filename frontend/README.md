@@ -30,10 +30,17 @@ A beautiful, minimalist chat interface for conversing with an AI companion power
 npm install
 ```
 
-2. Create a `.env` file:
+2. **IMPORTANT: Create a `.env` file for local development:**
 ```bash
 cp .env.example .env
 ```
+
+Your `.env` file should contain:
+```env
+VITE_API_URL=http://localhost:3000/api
+```
+
+⚠️ **Do NOT use `.env.production` for local development!** That file contains the public ngrok URL for the deployed version and will NOT work when running locally.
 
 3. Start the development server:
 ```bash
@@ -76,6 +83,26 @@ src/
 ├── App.jsx               # Root component
 └── index.css             # Global styles & Tailwind imports
 ```
+
+## Environment Configuration
+
+The frontend uses different environment files for different scenarios:
+
+### `.env` (Local Development)
+- Used when running `npm run dev`
+- Should point to your local backend: `VITE_API_URL=http://localhost:3000/api`
+- **You must create this file yourself** - it's not in the repository (git ignored)
+- Copy from `.env.example` to get started
+
+### `.env.production` (Production Builds)
+- Used when running `npm run build`
+- Points to the public backend (ngrok URL for the live demo)
+- **This is committed to the repository** for the deployed version
+- **Do NOT use this for local development!**
+
+### `.env.example` (Template)
+- Template file showing the required variables
+- Copy this to create your `.env` file
 
 ## API Integration
 
