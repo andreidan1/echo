@@ -16,9 +16,28 @@ let memory = [];
 
 const app = express();
 app.use(express.json());
+
+// Allow requests from local dev, GitHub Pages, and any ngrok URL
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'https://andreidan1.github.io',
+];
+
 app.use(cors({
-  origin: ['http://localhost:5173','http://127.0.0.1:5173'],
-  methods: ['GET','POST','OPTIONS'],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, or Postman)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is in allowed list or is an ngrok URL
+    if (allowedOrigins.includes(origin) || origin.includes('.ngrok')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
 }));
 
 app.get('/api/health', (req, res) => {
