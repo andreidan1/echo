@@ -6,7 +6,9 @@ Echo is a free, open-source alternative to Friend.com, bringing AI companionship
 
 ## Why Echo Exists
 
-Friend.com offers an AI companion experience but is only avaiable as a demo on their website with proprietary models and hardware. Also, their main source of income is the AI necklace , which is expensive and has the same proprietary/privacy issues as the website Friend. Echo was created to make this technology accessible to everyone by:
+Friend.com offers an AI companion experience but is only avaiable as a demo on their website with proprietary models and hardware. Also, their main source of income is the AI necklace , which is expensive and has the same proprietary/privacy issues as the website Friend. Anybody who understands LLM economics gets the fact that a onetime 129$ payment for limitless messaging cannot cover the costs per users, meaning there is most likely data selling and privacy intrusion happening. ( NOT CONFIRMED, just a speculation ) . 
+
+Echo was created to make this technology accessible to everyone by:
 
 - Running completely locally on your machine
 - Using open-source language models (Gemma, Llama, etc.)
