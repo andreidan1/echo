@@ -108,28 +108,16 @@ npm start
 
 The backend will start on `http://localhost:3000`
 
-3. **Configure the frontend for local development**
+3. **Start the frontend** (in a new terminal)
 ```bash
 cd frontend
-
-# Copy the example environment file
-cp .env.example .env
-
-# The .env file should contain:
-# VITE_API_URL=http://localhost:3000/api
-```
-
-⚠️ **IMPORTANT**: The repository includes a `.env.production` file with a public ngrok URL for the live demo. This will NOT work for local development. You MUST create a `.env` file (not `.env.production`) with `VITE_API_URL=http://localhost:3000/api` to run locally.
-
-4. **Start the frontend**
-```bash
 npm install
 npm run dev
 ```
 
 The frontend will be available at `http://localhost:5173`
 
-5. **Open your browser** and navigate to `http://localhost:5173`
+4. **Open your browser** and navigate to `http://localhost:5173`
 
 ### Configuration
 
@@ -144,27 +132,11 @@ OLLAMA_MODEL=gemma3:1b
 
 #### Frontend Environment Variables
 
-**For Local Development:**
-
 Create a `.env` file in the `frontend/` directory:
 
 ```env
 VITE_API_URL=http://localhost:3000/api
 ```
-
-**For Production Deployment:**
-
-The `.env.production` file is used when building for production (e.g., GitHub Pages). It points to a public backend URL:
-
-```env
-VITE_API_URL=https://your-ngrok-url.ngrok-free.app/api
-```
-
-⚠️ **Key Points:**
-- `.env` = Used during `npm run dev` (local development)
-- `.env.production` = Used during `npm run build` (production builds)
-- The repository includes `.env.production` for the live demo
-- You MUST create your own `.env` file for local development
 
 ## API Reference
 
@@ -312,32 +284,13 @@ echo/
 
 ## Deployment
 
-### Production Deployment
+Echo is designed to run locally on your machine. For production deployment scenarios, you'll need to:
 
-#### Frontend (Static Hosting)
-Deploy to Vercel, Netlify, or any static host:
+1. Deploy the frontend to a static hosting service (Vercel, Netlify, GitHub Pages)
+2. Deploy the backend to a server with Ollama installed
+3. Configure CORS and environment variables appropriately
 
-```bash
-cd frontend
-npm run build
-# Upload dist/ folder to your hosting service
-```
-
-#### Backend (Server Deployment)
-Deploy to any Node.js hosting platform:
-
-```bash
-cd server
-# Ensure Ollama is installed on the server
-# Set environment variables
-npm start
-```
-
-Note: For production use, consider adding persistent storage (PostgreSQL, MongoDB) for conversation history.
-
-### Docker Deployment (Coming Soon)
-
-A Docker Compose setup for easy deployment is planned for future releases.
+Note: Production deployment requires a server capable of running Ollama and the Node.js backend.
 
 ## Roadmap
 
